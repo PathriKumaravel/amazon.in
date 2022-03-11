@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Poppins:ital,wght@1,200&family=Redressed&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Fredoka', sans-serif;
+}
+/*content*/
+
+#first{
+    padding: 10px;
+}
+#second{
+    padding: 10px;
+}
+#third{
+    padding: 10px;
+}
+#four{
+    padding: 10px;
+}
+#five{
+    padding: 10px;
+}
+#six{
+    padding: 10px;
+}
+#seven{
+    padding: 10px;
+}
+#eight{
+    padding: 10px;
+}
+.cont a{
+    text-decoration: none;
+    color: black;
+}
+.card img{
+    height: 200px;
+}
+
+
+
+@media screen and (max-width : 1400px){
+    body{
+        background-color: red;
+    }
+}
+@media screen and (max-width : 1200px){
+    body{
+        background-color: rgb(61, 160, 41);
+    }
+}
+@media screen and (max-width : 1000px){
+    body{
+        background-color: rgb(62, 15, 172);
+    }
+}
+@media screen and (max-width : 800px){
+    body{
+        background-color: rgb(192, 82, 168);
+    }
+}
+@media screen and (max-width : 600px){
+    body{
+        background-color: rgb(17, 182, 211);
+    }
+}
