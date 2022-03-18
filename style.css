@@ -37,22 +37,41 @@
     }
 }
 @media screen and (max-width : 1200px){
-    body{
-        background-color: rgb(61, 160, 41);
+    #coupon {
+        height: 300px;
+        width: 560px;
+        margin-left: 28%;
+        background-size: cover;
     }
 }
-@media screen and (max-width : 1000px){
-    body{
-        background-color: rgb(62, 15, 172);
+@media screen and (max-width : 992px){
+    #coupon {
+        height: 300px;
+        width: 560px;
+        margin-left: 20%;
+        background-size: cover;
+    }
+    btn{
+        color: black !important;
     }
 }
-@media screen and (max-width : 800px){
-    body{
-        background-color: rgb(192, 82, 168);
+@media screen and (max-width : 768px){
+    #coupon {
+        height: 250px;
+        width: 475px;
+        margin-left: 19%;
+        background-size: cover;
     }
+    
 }
-@media screen and (max-width : 600px){
-    body{
-        background-color: rgb(17, 182, 211);
+@media screen and (max-width : 576px){
+    #coupon {
+        height: 250px;
+        width: 350px;
+        margin-left: 16%;
+        background-size: auto;
+    }
+    .btn{
+        color: white !important;
     }
 }
