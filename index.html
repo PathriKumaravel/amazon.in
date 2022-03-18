@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazon.in</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!--Icon link-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style.css">
     <style>
         body{
             background-color: white;
@@ -27,6 +27,7 @@
             var mybody = document.body;
             mybody.classList.toggle('mydark');
         }
+
     </script>
     <!--Header Start-->
     <header>
@@ -65,26 +66,37 @@
                             <button class="btn " type="button" style="border: 1px solid white;background-color: #febd69;">Search</button>
                         </form>
                     </li>
+                    <li class="nav-item m-2">
+                        <p><i class="bi bi-cloud-fill" style="color: #febd69; font-size:20px;;"><small id="weatherout" style="color: white;"></small></i>
+                           
+                        </p>
+                    </li>
                     </ul>
                     <ul class="d-flex">
                         <li class="nav-item">
                             <button class="btn btn-dark" type="button" ><i class="bi bi-bag-fill" style="color: #febd69;"></i>&nbsp;Cart</button>
                         </li>
-                    <li class="nav-item">
-                        <button class="btn btn-dark" type="button" ><i class="bi bi-box-arrow-in-right" style="color: #febd69;"></i>&nbsp;Login</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-dark" type="button" ><i  class="bi bi-box-arrow-left" style="color: #febd69;"></i>&nbsp;Signup</button>
-                    </li>
-                    <li class="nav-item">
-                        <button onclick="changemode()" class="btn btn-md" style="color: white;"><i class="bi bi-lightning-charge-fill"style="color: #febd69;"></i>Change Mode</button>
-                    </li>
-                </ul>
+                        <li class="nav-item">
+                            <button class="btn btn-dark" type="button" ><i class="bi bi-box-arrow-in-right" style="color: #febd69;"></i>&nbsp;Login</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-dark" type="button" ><i  class="bi bi-box-arrow-left" style="color: #febd69;"></i>&nbsp;Signup</button>
+                        </li>
+                        <li class="nav-item">
+                            <button onclick="changemode()" class="btn btn-md" style="color: white;"><i class="bi bi-lightning-charge-fill"style="color: #febd69;"></i>Change Mode</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     <!--Nav bar-->
     </header>  
+    <div>
+        <div id="coupon">
+            <button class="btn" onClick="closeCoupon()">&times;</button>
+            <!-- <img src="images/coupon.png" alt="coupon"> -->
+        </div>
+    </div>
     <!--Heading End-->
     <!-- Carousel -->
     <div id="demo" class="carousel slide" data-bs-ride="carousel">
@@ -354,6 +366,47 @@
           </div>
         </div>
     </footer>
+
+
+    <script>
+        let tempvalue = document.getElementById('weatherout');
+
+        window.addEventListener('load',()=>{
+        let latitude;
+        let longitude;
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition((position)=>
+            {
+                latitude = position.coords.latitude;
+                longitude = position.coords.longitude;
+
+                const url =`https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&mode=json&units=metric&cnt=1&appid=fbf712a5a83d7305c3cda4ca8fe7ef29`
+                
+                fetch(url,{method: 'GET'})
+
+                .then((res) => res.json())
+
+                .then((data) => {
+                let cityName = data.city.name
+                let weather = `${data.list[0].temp.day}`
+                let output = ` ${cityName} ${weather}°C`
+                console.log(data)
+                tempvalue.innerText = output;
+            })
+
+        })
+    }
+    })
+
+    function loadCoupon(){
+                document.getElementById('coupon').style.visibility = 'visible'
+            }
+
+            function closeCoupon(){
+                document.getElementById('coupon').style.visibility = 'hidden'
+            }
+            window.onload=loadCoupon()
+    </script>
     <!--Footer-->        
 
 </body>

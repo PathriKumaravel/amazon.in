@@ -15,7 +15,20 @@
 .card img{
     height: 200px;
 }
-
+#coupon {
+    height: 350px;
+    width: 650px;
+    /* background-color: gray; */
+    background-image: url(images/coupon1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 100;
+    position: absolute;
+    /* margin: auto; */
+    margin-left: 30%;
+    margin-top: 10%;
+    visibility: hidden;
+}
 
 
 @media screen and (max-width : 1400px){
